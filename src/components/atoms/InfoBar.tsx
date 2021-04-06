@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   LinearProgress,
   makeStyles,
   Theme,
@@ -8,6 +7,7 @@ import {
   ButtonProps,
 } from "@material-ui/core";
 import React from "react";
+import { CustomButton } from "./CustomButton";
 
 interface InfoBarProps extends ButtonProps {
   title: string;
@@ -69,7 +69,7 @@ export const InfoBar: React.FC<InfoBarProps> = ({
   introTitle,
   btnText,
   disabled,
-  ...ButtonProps
+  onClick,
 }) => {
   const classes = useStyles(actionBtn);
   // const [display,setDisplay]=useState(true)
@@ -88,16 +88,11 @@ export const InfoBar: React.FC<InfoBarProps> = ({
           )}
         </Box>
         {actionBtn && (
-          <Button
-            // onClick={}
-            variant="contained"
-            color="primary"
-            className={classes.btn}
+          <CustomButton
+            btnTitle={btnText}
             disabled={disabled}
-            {...ButtonProps}
-          >
-            {btnText}
-          </Button>
+            onClick={onClick}
+          />
         )}
       </Box>
     </Box>

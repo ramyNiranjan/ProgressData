@@ -9,7 +9,9 @@ import {
 } from "@material-ui/core";
 import React from "react";
 
-interface AddEmployeesProps extends ButtonProps {}
+interface AddEmployeesProps extends ButtonProps {
+  children?: React.ReactNode;
+}
 
 const useStyles = makeStyles((theme: Theme) => ({
   main: {
@@ -42,6 +44,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   uploadText: {},
   uploadBtn: {
     width: "138px",
+    position: "relative",
+    height: "47px",
   },
   orderedList: {
     lineHeight: 1.8,
@@ -55,9 +59,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   link: {
     textDecoration: "underline",
   },
+  csvUpload: {
+    position: "absolute",
+    marginLeft: "auto",
+    marginRight: "auto",
+    left: 0,
+    right: 0,
+    width: "100%",
+    overflow: "hidden",
+    opacity: 0,
+  },
 }));
 
 export const AddEmployees: React.FC<AddEmployeesProps> = ({
+  children,
   ...ButtonProps
 }) => {
   const classes = useStyles();
@@ -81,6 +96,7 @@ export const AddEmployees: React.FC<AddEmployeesProps> = ({
           color="primary"
           {...ButtonProps}
         >
+          <div className={classes.csvUpload}>{children}</div>
           Upload .csv
         </Button>
       </Box>
