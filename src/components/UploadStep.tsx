@@ -11,10 +11,10 @@ interface UploadStepProps {}
 
 export const UploadStep: React.FC<UploadStepProps> = ({}) => {
   const [step, setStep] = useState(0);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [csvData, setCsvData] = useState([]);
-  const [error, setError] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  // const [error, setError] = useState("");
+  // const [disabled, setDisabled] = useState(false);
 
   const useStyles = makeStyles((theme: Theme) => ({
     contentShift: {
@@ -42,7 +42,7 @@ export const UploadStep: React.FC<UploadStepProps> = ({}) => {
   };
 
   const errorHandler = (error: Error) => {
-    setError(error.message);
+    // setError(error.message);
     if (error) {
       return;
     }

@@ -1,5 +1,5 @@
 {
-  "name": "Progress-data",
+  "name": "ProgressData",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,9 +12,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
-    "axios": "^0.21.1",
     "classnames": "^2.2.6",
-    "js-file-download": "^0.4.12",
     "react": "^17.0.1",
     "react-csv-reader": "^3.3.0",
     "react-dom": "^17.0.1",
