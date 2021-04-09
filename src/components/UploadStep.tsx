@@ -1,6 +1,5 @@
 /* eslint-disable no-empty-pattern */
 import { Box, makeStyles, Theme } from "@material-ui/core";
-import classNames from "classnames";
 import React, { useState } from "react";
 import CSVReader from "react-csv-reader";
 
@@ -81,7 +80,13 @@ export const UploadStep: React.FC<UploadStepProps> = ({}) => {
           />
         );
       case 3:
-        return <AddEmployees />;
+        return (
+          <InfoBar
+            introTitle="STEP1"
+            title={`Employees(${csvData.length})`}
+            progressBar
+          />
+        );
       default:
         return (
           <InfoBar
@@ -94,6 +99,5 @@ export const UploadStep: React.FC<UploadStepProps> = ({}) => {
     }
   }
   const classes = useStyles();
-  console.log("this from state", csvData);
   return <Box className={classes.contentShift}>{getStepContent(step)}</Box>;
 };

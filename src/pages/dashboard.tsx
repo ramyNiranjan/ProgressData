@@ -1,11 +1,11 @@
 import { Box, makeStyles, Theme } from "@material-ui/core";
-import { useState } from "react";
 import classNames from "classnames";
 
 import { InfoBar } from "../components/atoms/InfoBar";
 
 import OnboardingInfo from "../components/atoms/OnboardingInfo";
 import { UploadStep } from "../components/UploadStep";
+import { useAppState } from "../contexts/AppContextProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {},
@@ -32,8 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const DashboardPage = () => {
   const classes = useStyles();
-
-  const [disabled, setDisabled] = useState(true);
+  const { disabled } = useAppState();
 
   return (
     <div className={classes.root}>

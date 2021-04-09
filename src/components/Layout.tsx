@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
     flex: 1,
   },
   main: {
-    // padding: "15px",
     flex: 1,
     backgroundColor: "#ECECED",
   },

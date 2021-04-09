@@ -1,6 +1,7 @@
 import { Box, Divider, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import CSVReader from "react-csv-reader";
+import { useAppState } from "../contexts/AppContextProvider";
 import { CustomButton } from "./atoms/CustomButton";
 import Table from "./atoms/Table";
 
@@ -17,7 +18,13 @@ const useStyles = makeStyles({
   },
   tableSection: {
     width: "80%",
-    fontSize: "10px",
+    fontSize: "12px",
+    fontWeight: "bold",
+  },
+  tableCountInfo: {
+    textAlign: "left",
+    fontWeight: "bold",
+    padding: "16px",
   },
   sideInfo: {
     display: "flex",
@@ -58,13 +65,25 @@ export const TableStep: React.FC<TableStepProps> = ({
   settingCount,
 }) => {
   const classes = useStyles();
+  const { setDisabled } = useAppState();
+
+  const tableClickHandler = () => {
+    setDisabled(false);
+    settingCount();
+  };
+
   return (
     <Box className={classes.root}>
-      <Table tableData={tableData} className={classes.tableSection} />
+      <Box className={classes.tableSection}>
+        <Typography
+          className={classes.tableCountInfo}
+        >{`${tableData.length} Employees`}</Typography>
+        <Table tableData={tableData} />
+      </Box>
       <Divider orientation="vertical" flexItem />
       <Box className={classes.sideInfo}>
         <Box className={classes.sideInfoBtn}>
-          <CustomButton btnTitle="next" onClick={settingCount} />
+          <CustomButton btnTitle="next" onClick={tableClickHandler} />
           <CustomButton btnTitle="Upload .csv">
             <CSVReader
               parserOptions={{ header: true }}

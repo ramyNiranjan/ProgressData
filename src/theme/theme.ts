@@ -24,6 +24,7 @@ const defaultConfig: any = {
         },
         a: {
           textDecoration: "none",
+          color: "inherit",
         },
         ol: {
           margin: 0,
@@ -61,6 +62,11 @@ const defaultConfig: any = {
       },
       body2: {
         fontSize: 12,
+      },
+    },
+    MuiTableCell: {
+      root: {
+        fontSize: "12px",
       },
     },
     // MuiToggleButton: {

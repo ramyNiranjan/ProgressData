@@ -1,5 +1,4 @@
 import {
-  Link,
   Box,
   Button,
   makeStyles,
@@ -8,6 +7,7 @@ import {
   ButtonProps,
 } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface AddEmployeesProps extends ButtonProps {
   children?: React.ReactNode;
@@ -85,7 +85,12 @@ export const AddEmployees: React.FC<AddEmployeesProps> = ({
           following column names in{" "}
           <Box>
             your own .csv file.
-            <Link className={classes.link} href="#" color="inherit">
+            <Link
+              to="/sampleCSV/sampleCSV.csv"
+              target="_blank"
+              download
+              className={classes.link}
+            >
               Download an example here
             </Link>
           </Box>

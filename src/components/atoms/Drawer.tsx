@@ -1,7 +1,7 @@
 import Drawer from "@material-ui/core/Drawer";
 import MenuItemsList from "../MenuItemsList";
-import clsx from "clsx";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: any) => ({
   drawer: {
@@ -18,7 +18,7 @@ const CustomDrawer = () => {
     <Drawer
       variant="permanent"
       classes={{
-        paper: clsx(classes.drawer),
+        paper: classNames(classes.drawer),
       }}
     >
       <MenuItemsList />
