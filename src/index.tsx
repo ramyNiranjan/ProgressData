@@ -6,15 +6,15 @@ import { AppContextProvider } from "./contexts/AppContextProvider";
 import PDthemeProvider from "./theme";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppContextProvider>
-      <PDthemeProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PDthemeProvider>
-    </AppContextProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   </React.StrictMode>
+  <AppContextProvider>
+    <PDthemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PDthemeProvider>
+  </AppContextProvider>,
 
   document.getElementById("root")
 );

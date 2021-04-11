@@ -2,8 +2,10 @@
 import { Box, makeStyles, Theme } from "@material-ui/core";
 import React, { useState } from "react";
 import CSVReader from "react-csv-reader";
+import { csvKeys } from "../constants/csvKeys";
 
 import { AddEmployees } from "./atoms/AddEmployees";
+import DialogBox from "./atoms/DialogBox";
 import { InfoBar } from "./atoms/InfoBar";
 import { TableStep } from "./TableStep";
 
@@ -11,10 +13,10 @@ interface UploadStepProps {}
 
 export const UploadStep: React.FC<UploadStepProps> = ({}) => {
   const [step, setStep] = useState(0);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [csvData, setCsvData] = useState([]);
-  // const [error, setError] = useState("");
-  // const [disabled, setDisabled] = useState(false);
+  const [error, setError] = useState("");
+  const [openDialog, setOpenDialog] = useState(false);
 
   const useStyles = makeStyles((theme: Theme) => ({
     contentShift: {
@@ -30,20 +32,30 @@ export const UploadStep: React.FC<UploadStepProps> = ({}) => {
   };
 
   const fileUploadClickHandler = (data: any, nextStep: boolean) => {
-    // setLoading(true);
-    // setDisabled(true);
-    console.log(data);
+    setLoading(true);
     if (data?.length > 0) {
+      if (!checkingUploadIsValid(data)) {
+        setOpenDialog(true);
+        return console.log("not match");
+      }
       setCsvData(data);
-      console.log("this from state", csvData);
-      // setLoading(false);
+      setLoading(false);
       if (nextStep) return settingCount();
     }
   };
 
+  const checkingUploadIsValid = (data: [{}]) => {
+    const uploadedKeys = Object.keys(data[0]);
+    return csvKeys.every((csvKey) => {
+      return uploadedKeys.find((uploadedKey) =>
+        uploadedKey.toLocaleLowerCase().includes(csvKey)
+      );
+    });
+  };
+
   const errorHandler = (error: Error) => {
-    // setError(error.message);
     if (error) {
+      setError(error.message);
       return;
     }
   };
@@ -99,5 +111,10 @@ export const UploadStep: React.FC<UploadStepProps> = ({}) => {
     }
   }
   const classes = useStyles();
-  return <Box className={classes.contentShift}>{getStepContent(step)}</Box>;
+  return (
+    <Box className={classes.contentShift}>
+      {getStepContent(step)}
+      <DialogBox open={openDialog} setOpen={setOpenDialog} />
+    </Box>
+  );
 };

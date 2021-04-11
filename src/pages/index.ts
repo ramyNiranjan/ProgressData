@@ -1,6 +1,13 @@
-import DashboardPage from "./dashboard";
-import OrdersPage from "./orders";
-import CustomersPage from "./customers";
-import InventoryPage from "./inventory";
+import DIMeasurement from "./D&I-measurement";
+import Goals from "./Goals";
+import ImprovementSuggestions from "./ImprovementSuggestions";
+import PaygapMeasurement from "./PaygapMeasurement";
+import ISOCertification from "./ISOCertification";
 
-export { DashboardPage, OrdersPage, CustomersPage, InventoryPage };
+export {
+  DIMeasurement,
+  Goals,
+  ImprovementSuggestions,
+  PaygapMeasurement,
+  ISOCertification,
+};

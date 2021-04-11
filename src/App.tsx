@@ -3,10 +3,11 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { ROUTES } from "./constants/routes";
 import Layout from "./components/Layout";
 import {
-  DashboardPage,
-  CustomersPage,
-  OrdersPage,
-  InventoryPage,
+  DIMeasurement,
+  ImprovementSuggestions,
+  Goals,
+  PaygapMeasurement,
+  ISOCertification,
 } from "./pages";
 
 function App() {
@@ -21,16 +22,16 @@ function App() {
         <Route
           exact
           path={ROUTES["D&I-measurement"]}
-          component={DashboardPage}
+          component={DIMeasurement}
         />
-        <Route exact path={ROUTES.Goals} component={OrdersPage} />
+        <Route exact path={ROUTES.Goals} component={Goals} />
         <Route
           exact
           path={ROUTES["Improvement-suggestions"]}
-          component={CustomersPage}
+          component={ImprovementSuggestions}
         />
-        <Route exact path={ROUTES.Paygap} component={InventoryPage} />
-        <Route exact path={ROUTES.ISO} component={InventoryPage} />
+        <Route exact path={ROUTES.Paygap} component={PaygapMeasurement} />
+        <Route exact path={ROUTES.ISO} component={ISOCertification} />
       </Switch>
     </Layout>
   );

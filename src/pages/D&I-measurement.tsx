@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const DashboardPage = () => {
+const DIMeasurement = () => {
   const classes = useStyles();
   const { disabled } = useAppState();
 
@@ -59,4 +59,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default DIMeasurement;

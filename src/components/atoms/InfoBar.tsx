@@ -60,8 +60,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-// const addEmployee = () => {};
-
 export const InfoBar: React.FC<InfoBarProps> = ({
   title,
   progressBar = false,
@@ -72,7 +70,6 @@ export const InfoBar: React.FC<InfoBarProps> = ({
   onClick,
 }) => {
   const classes = useStyles(actionBtn);
-  // const [display,setDisplay]=useState(true)
   return (
     <Box>
       <Typography className={classes.introTitle}>{introTitle}</Typography>

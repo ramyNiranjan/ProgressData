@@ -107,11 +107,12 @@ export const AddEmployees: React.FC<AddEmployeesProps> = ({
       </Box>
       <Box className={classes.orderedList}>
         <ol>
+          <li>Email</li>
           <li>First name</li>
           <li>Last name</li>
           <li>Title / Role</li>
           <li>Department</li>
-          <li>Contry</li>
+          <li>Country</li>
         </ol>
       </Box>
     </Box>
